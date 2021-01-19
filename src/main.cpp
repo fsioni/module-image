@@ -5,8 +5,10 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    Pixel p(1, 1, 1);
-   
-    cout << (int)p.getBleu() << endl;
+    Image im(5, 5);
+    Pixel p(255, 0, 0);
+    im.dessinerRectangle(1, 1, 3, 2, p);
+    im.testRegression();    
+
     return 0;
 }
