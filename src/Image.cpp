@@ -6,7 +6,7 @@ Image::Image(){
     dimy = 0;
 }
 
-Image::Image(int const dimensionX, int const dimensionY){
+Image::Image(unsigned int const dimensionX, unsigned int const dimensionY){
     dimx = dimensionX;
     dimy = dimensionY;
     tab = new Pixel[dimx*dimy];
@@ -18,11 +18,11 @@ Image::~Image(){
     dimy = 0;
 }
 
-Pixel Image::getPix(int const x, int const y){
+Pixel Image::getPix(unsigned int const x, unsigned int const y){
     assert (x<dimx && y<dimy);
         return tab[y*dimx+x];
 }
 
-void Image::setPix(int const x,int const y, Pixel const couleur){
+void Image::setPix(unsigned int const x, unsigned int const y, Pixel const couleur){
     tab[y*dimx+x] = couleur;
 }

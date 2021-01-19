@@ -6,17 +6,37 @@
 class Image
 {
 private:
+    /// ==== Données membres ==== ///
+
     Pixel *tab;
-    int dimx, dimy;
+    /// tab : tableau 1D de pixel
+
+    unsigned int dimx, dimy;
+    /// 
 public:
+    /// ==== Fonctions membres === ///
+
     Image();
-    Image (int const dimensionX, int const dimensionY);
+    /// Postcondition : dimx et dimy = 0, tab n'est pas alloué
+
+    Image (unsigned int const dimensionX, unsigned int const dimensionY);
+    /// Précondition : dimx et dimy >= 0
+    /// Postcondition : dimx = dimensionX et dimy = dimensionY, 
+    ///     allocation d'un tableau 1D (taille = dimX*dimY) 
+    ///     de pixels noir (constructeur par défaut de pixel)
 
     ~Image();
+    /// Postcondition : tab désalloué et dimX, dimY = 0
 
-    Pixel getPix(int const x, int const y);
+    /// ==== Accesseurs ====
+    Pixel getPix(unsigned int const x, unsigned int const y);
+    /// Précondition : 0 <= x < dimX, 0 <= y < dimY
+    /// Postcondition : retourne le pixel à la position (x, y)
 
-    void setPix (int const x,int const y, Pixel const couleur);
+    /// ==== Mutateurs ====
+    void setPix (unsigned int const x, unsigned int const y, Pixel const couleur);
+    /// Précondition : 0 <= x < dimX, 0 <= y < dimY
+    /// Postcondition : modifie le pixel à la position (x, y) par le Pixel couleur
 };
 
 // Dessine un rectangle plein de la couleur dans l'image (en utilisant setPix, indices en paramètre compris)
