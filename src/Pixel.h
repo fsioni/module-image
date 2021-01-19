@@ -4,20 +4,20 @@
 class Pixel
 {
 private:
-    int r, g, b;
+    unsigned char r, g, b;
 public:
     Pixel();
-    Pixel(int const nr, int const ng, int const nb);
+    Pixel(unsigned char const nr, unsigned char const ng, unsigned char const nb);
     ~Pixel();
 
 
-    int getRouge() const;
-    int getVert() const;
-    int getBleu() const;
+    unsigned char getRouge() const;
+    unsigned char getVert() const;
+    unsigned char getBleu() const;
 
-    void setRouge(int const nr);
-    void setVert(int const ng);
-    void setBleu(int const nb);
+    void setRouge(unsigned char const nr);
+    void setVert(unsigned char const ng);
+    void setBleu(unsigned char const nb);
 };
 
 #endif
