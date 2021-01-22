@@ -45,7 +45,7 @@ public:
 
 
     /// ==== Accesseurs ====
-    Pixel getPix(unsigned int x, unsigned int y) const;
+    Pixel& getPix(unsigned int x, unsigned int y) const;
     /// Précondition : 0 <= x < dimX, 0 <= y < dimY
     /// Postcondition : retourne le pixel à la position (x, y)
 
