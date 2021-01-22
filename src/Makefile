@@ -1,7 +1,7 @@
-all: ./bin/test.out
+all: ./bin/test
 
-./bin/test.out : main.o Pixel.o Image.o 
-	g++ -g main.o Pixel.o Image.o -o ./bin/test.out
+./bin/test : main.o Pixel.o Image.o 
+	g++ -g main.o Pixel.o Image.o -o ./bin/test
 
 main.o : main.cpp Pixel.h Image.h
 	g++ -g -Wall -c main.cpp
@@ -16,5 +16,5 @@ clean :
 	rm ./bin/*.o *.o
 
 veryclean : 
-	rm ./bin/*.out *.out
+	rm ./bin/test
 
