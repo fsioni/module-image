@@ -6,28 +6,56 @@
 class Image
 {
 private:
+    /// ==== Données membres ==== ///
+
     Pixel *tab;
-    int dimx, dimy;
+    /// tab : tableau 1D de pixel
+
+    unsigned int dimx, dimy;
+    /// 
 public:
+    /// ==== Fonctions membres === ///
+
     Image();
-    Image (int const dimensionX, int const dimensionY);
+    /// Postcondition : dimx et dimy = 0, tab n'est pas alloué
+
+    Image (unsigned int dimensionX, unsigned int dimensionY);
+    /// Précondition : dimx et dimy >= 0
+    /// Postcondition : dimx = dimensionX et dimy = dimensionY, 
+    ///     allocation d'un tableau 1D (taille = dimX*dimY) 
+    ///     de pixels noir (constructeur par défaut de pixel)
 
     ~Image();
+    /// Postcondition : tab désalloué et dimX, dimY = 0
 
-    Pixel getPix(int const x, int const y);
 
-    void setPix (int const x,int const y, Pixel const couleur);
+    void testRegression();
+    /// Postcondition : série de test du module
+
+    void dessinerRectangle(unsigned int Xmin, unsigned int Ymin, unsigned int Xmax, unsigned int Ymax, Pixel const & couleur);
+    /// Precondition : 0 <= Xmin < Xmax < dimx et 0 <= Xmin < Xmax < dimx
+    /// Postcondition : dessine un rectangle plein de la couleur passée en parametre
+    ///     entre les coordonnées (Xmin, Ymin) et (Xmax, Ymax)
+
+
+    void effacer(Pixel const & couleur);
+    /// Postcondition : dessine un rectangle de la couleur passée
+    ///     en parametre de la taille de l'Image
+
+
+
+    /// ==== Accesseurs ====
+    Pixel getPix(unsigned int x, unsigned int y) const;
+    /// Précondition : 0 <= x < dimX, 0 <= y < dimY
+    /// Postcondition : retourne le pixel à la position (x, y)
+
+    /// ==== Mutateurs ====
+    void setPix (unsigned int x, unsigned int y, Pixel const & couleur);
+    /// Précondition : 0 <= x < dimX, 0 <= y < dimY
+    /// Postcondition : modifie le pixel à la position (x, y) par le Pixel couleur
+
 };
 
-// Dessine un rectangle plein de la couleur dans l'image (en utilisant setPix, indices en paramètre compris)
-   void dessinerRectangle (int const Xmin, int const Ymin, int const Xmax, int const Ymax, Pixel const couleur);
 
-   // Efface l'image en la remplissant de la couleur en paramètre
-   // (en appelant dessinerRectangle avec le bon rectangle)
-   void effacer(Pixel const couleur);
-
-   // Effectue une série de tests vérifiant que le module fonctionne et
-   // que les données membres de l'objet sont conformes
-   void testRegression ();
 
 #endif

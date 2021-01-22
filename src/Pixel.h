@@ -4,20 +4,49 @@
 class Pixel
 {
 private:
-    int r, g, b;
+    /// ==== Données membres ==== ///
+
+    unsigned char r, g, b;
+    /// r, g, b => [0...255]
+
+
 public:
+    /// ==== Fonctions membres === ///
+
     Pixel();
-    Pixel(int const nr, int const ng, int const nb);
+    /// Postcondition : r, g, b initialisés à 0 => couleur noire
+
+    Pixel(unsigned char const nr, unsigned char const ng, unsigned char const nb);
+    /// Précondition : nr, ng, nb => [0, 255] sinon convertion automatique
+    /// Postcondition : r = nr, g = gb, b = nb
+
     ~Pixel();
+    /// Postcondition : objet détruit
 
 
-    int getRouge() const;
-    int getVert() const;
-    int getBleu() const;
+    /// ==== Accesseurs ====
+    unsigned char getRouge() const;
+    /// Postcondition : retourn r
 
-    void setRouge(int const nr);
-    void setVert(int const ng);
-    void setBleu(int const nb);
+    unsigned char getVert() const;
+    /// Postcondition : retourn g
+
+    unsigned char getBleu() const;
+    /// Postcondition : retourn b
+
+
+    /// ==== Mutateurs ====
+    void setRouge(unsigned char const nr);
+    /// Précondition : nr  => [0, 255] sinon convertion automatique
+    /// Postcondition : r = nr
+
+    void setVert(unsigned char const ng);
+    /// Précondition : ng  => [0, 255] sinon convertion automatique
+    /// Postcondition : g = ng
+
+    void setBleu(unsigned char const nb);
+    /// Précondition : nb  => [0, 255] sinon convertion automatique
+    /// Postcondition : b = nb
 };
 
 #endif

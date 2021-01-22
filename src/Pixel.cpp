@@ -6,7 +6,7 @@ Pixel::Pixel(){
     b = 0;
 }
 
-Pixel::Pixel(int const nr, int const ng, int const nb){
+Pixel::Pixel(unsigned char const nr, unsigned char const ng, unsigned char const nb){
     r = nr;
     g = ng;
     b = nb;
@@ -14,14 +14,14 @@ Pixel::Pixel(int const nr, int const ng, int const nb){
 
 Pixel::~Pixel(){}
 
-int Pixel::getRouge() const{return r;}
+unsigned char Pixel::getRouge() const{return r;}
 
-int Pixel::getVert() const{return g;}
+unsigned char Pixel::getVert() const{return g;}
 
-int Pixel::getBleu() const{return b;}
+unsigned char Pixel::getBleu() const{return b;}
 
-void Pixel::setRouge(int const nr){r = nr;}
+void Pixel::setRouge(unsigned char const nr){r = nr;}
 
-void Pixel::setVert(int const ng){g = ng;}
+void Pixel::setVert(unsigned char const ng){g = ng;}
 
-void Pixel::setBleu(int const nb){b = nb;}
+void Pixel::setBleu(unsigned char const nb){b = nb;}
