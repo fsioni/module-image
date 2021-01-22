@@ -1,7 +1,12 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
+#include <string>
+#include <fstream> 
 #include "Pixel.h"
+
+using namespace std;
+
 
 class Image
 {
@@ -53,6 +58,14 @@ public:
     void setPix (unsigned int x, unsigned int y, Pixel const & couleur);
     /// Précondition : 0 <= x < dimX, 0 <= y < dimY
     /// Postcondition : modifie le pixel à la position (x, y) par le Pixel couleur
+
+
+    void sauver(const string & filename) const;
+
+    void ouvrir(const string & filename);
+
+    void afficherConsole();
+
 
 };
 
