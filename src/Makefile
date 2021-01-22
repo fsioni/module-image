@@ -1,7 +1,7 @@
-all: executable.out
+all: ../bin/test
 
-executable.out : main.o Pixel.o Image.o 
-	g++ -g main.o Pixel.o Image.o -o executable.out
+../bin/test : main.o Pixel.o Image.o 
+	g++ -g main.o Pixel.o Image.o -o ../bin/test
 
 main.o : main.cpp Pixel.h Image.h
 	g++ -g -Wall -c main.cpp
@@ -16,5 +16,5 @@ clean :
 	rm *.o
 
 veryclean : 
-	rm *.out
+	rm ../bin/test
 
