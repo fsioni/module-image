@@ -1,7 +1,7 @@
-all: executable.out
+all: executable
 
-executable.out : main.o Pixel.o Image.o 
-	g++ -g main.o Pixel.o Image.o -o executable.out
+executable : main.o Pixel.o Image.o 
+	g++ -g main.o Pixel.o Image.o -o executable
 
 main.o : main.cpp Pixel.h Image.h
 	g++ -g -Wall -c main.cpp
