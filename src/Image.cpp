@@ -93,8 +93,9 @@ void Image::sauver(const string & filename) const {
     fichier << "255" << endl;
     for(unsigned int y=0; y<dimy; ++y)
         for(unsigned int x=0; x<dimx; ++x) {
-            Pixel& pix = getPix(x++,y);
-            fichier << +pix.r << " " << +pix.g << " " << +pix.b << " ";
+            Pixel& pix = getPix(x,y);
+            // ajouter le + avant converti en int <=> a mettre (int) avant
+            fichier << +pix.getRouge() << " " << +pix.getVert() << " " << +pix.getBleu() << " ";
         }
     cout << "Sauvegarde de l'image " << filename << " ... OK\n";
     fichier.close();

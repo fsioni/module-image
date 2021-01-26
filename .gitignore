@@ -1,5 +1,4 @@
 .DS_Store
 
-*o
-
+*.o
 *.out
