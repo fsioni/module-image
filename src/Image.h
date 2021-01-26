@@ -1,3 +1,4 @@
+/// Image :
 #ifndef IMAGE_H
 #define IMAGE_H
 
@@ -19,7 +20,7 @@ public:
     Image();
     /// Postcondition : dimx et dimy = 0, tab n'est pas alloué
 
-    Image (unsigned int dimensionX, unsigned int dimensionY);
+    Image (int dimensionX, int dimensionY);
     /// Précondition : dimx et dimy >= 0
     /// Postcondition : dimx = dimensionX et dimy = dimensionY, 
     ///     allocation d'un tableau 1D (taille = dimX*dimY) 
@@ -31,8 +32,9 @@ public:
 
     void testRegression();
     /// Postcondition : série de test du module
+    
 
-    void dessinerRectangle(unsigned int Xmin, unsigned int Ymin, unsigned int Xmax, unsigned int Ymax, Pixel const & couleur);
+    void dessinerRectangle(int Xmin, int Ymin, int Xmax, int Ymax, Pixel const & couleur);
     /// Precondition : 0 <= Xmin < Xmax < dimx et 0 <= Xmin < Xmax < dimx
     /// Postcondition : dessine un rectangle plein de la couleur passée en parametre
     ///     entre les coordonnées (Xmin, Ymin) et (Xmax, Ymax)
@@ -45,12 +47,12 @@ public:
 
 
     /// ==== Accesseurs ====
-    Pixel getPix(unsigned int x, unsigned int y) const;
+    Pixel getPix(int x, int y) const;
     /// Précondition : 0 <= x < dimX, 0 <= y < dimY
     /// Postcondition : retourne le pixel à la position (x, y)
 
     /// ==== Mutateurs ====
-    void setPix (unsigned int x, unsigned int y, Pixel const & couleur);
+    void setPix (int x, int y, Pixel const & couleur);
     /// Précondition : 0 <= x < dimX, 0 <= y < dimY
     /// Postcondition : modifie le pixel à la position (x, y) par le Pixel couleur
 

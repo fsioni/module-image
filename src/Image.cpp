@@ -9,7 +9,8 @@ Image::Image(){
     dimy = 0;
 }
 
-Image::Image(unsigned int dimensionX, unsigned int dimensionY){
+Image::Image(int dimensionX, int dimensionY){
+    assert(dimensionX > 0 && dimensionY > 0);
     dimx = dimensionX;
     dimy = dimensionY;
     tab = new Pixel[dimx*dimy];
@@ -21,18 +22,21 @@ Image::~Image(){
     dimy = 0;
 }
 
-Pixel Image::getPix(unsigned int x, unsigned int y) const{
+Pixel Image::getPix(int x, int y) const{
+    assert(x >= 0 && y >= 0);
     assert (x<dimx && y<dimy);
     return tab[y*dimx+x];
 }
 
-void Image::setPix(unsigned int x, unsigned int y, Pixel const & couleur){
+void Image::setPix(int x, int y, Pixel const & couleur){
+    assert(x >= 0 && y >= 0);
     assert(x<dimx && y<dimy);
     tab[y*dimx+x] = couleur;
 }
 
 
-void Image::dessinerRectangle(unsigned int Xmin, unsigned int Ymin, unsigned int Xmax, unsigned int Ymax, Pixel const & couleur){
+void Image::dessinerRectangle(int Xmin, int Ymin, int Xmax, int Ymax, Pixel const & couleur){
+    assert(Xmin >= 0 && Ymin >= 0);
     assert(Xmin<=Xmax && Ymin<=Ymax);
     assert(Xmax<dimx && Ymax<dimy);
     for(unsigned int i=Xmin; i<=Xmax; i++)
