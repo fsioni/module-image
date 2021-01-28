@@ -4,49 +4,77 @@
 class Pixel
 {
 private:
-    /// ==== Données membres ==== ///
+    /*// ==== Données membres === //*/
 
-    unsigned char r, g, b;
-    /// r, g, b => [0...255]
+    unsigned char r//!< Quantité de couleur rouge du pixel => [0...255]
+    unsigned char g//!< Quantité de couleur verte du pixel => [0...255]
+    unsigned char b;//!< Quantité de couleur bleue du pixel => [0...255]
 
 
 public:
-    /// ==== Fonctions membres === ///
+    /*// ==== Fonctions membres === //*/
 
+    /*! \brief Créer un pixel de couleur noir
+    *
+    *
+    *  Un pixel est intialisé avec une quantité de rouge, vert et bleu à 0
+    */
     Pixel();
-    /// Postcondition : r, g, b initialisés à 0 => couleur noire
 
+    /*! \brief Créer un pixel avec la quantité de rouge, vert et bleu désiré
+    *
+    *
+    *  nr, ng, nb => [0, 255] sinon conversion automatique.
+    * La quantité de rouge du pixel devient : nr, de vert : ng et de bleu : nb.
+    */
     Pixel(unsigned char const nr, unsigned char const ng, unsigned char const nb);
-    /// Précondition : nr, ng, nb => [0, 255] sinon convertion automatique
-    /// Postcondition : r = nr, g = gb, b = nb
 
+    /*! \brief Le pixel est détruit
+    *
+    */
     ~Pixel();
-    /// Postcondition : objet détruit
 
 
-    /// ==== Accesseurs ====
+    /*// ==== Accesseurs === //*/
+
+    /*! \brief Retourne une valeur entre 0 et 255, correspondant à la quantité de rouge du pixel
+    *
+    * 
+    */
     unsigned char getRouge() const;
-    /// Postcondition : retourn r
 
+    /*! \brief Retourne une valeur entre 0 et 255, correspondant à la quantité de vert du pixel
+    *
+    * 
+    */
     unsigned char getVert() const;
-    /// Postcondition : retourn g
 
+    /*! \brief Retourne une valeur entre 0 et 255, correspondant à la quantité de bleu du pixel
+    *
+    * 
+    */
     unsigned char getBleu() const;
-    /// Postcondition : retourn b
 
 
-    /// ==== Mutateurs ====
+    /*// ==== Mutateurs === //*/
+
+    /*! \brief Modifie la quantité de rouge du pixel. nr doit être entre 0 et 255.
+    *
+    * 
+    */
     void setRouge(unsigned char const nr);
-    /// Précondition : nr  => [0, 255] sinon convertion automatique
-    /// Postcondition : r = nr
 
+    /*! \brief Modifie la quantité de vert du pixel. ng doit être entre 0 et 255.
+    *
+    * 
+    */
     void setVert(unsigned char const ng);
-    /// Précondition : ng  => [0, 255] sinon convertion automatique
-    /// Postcondition : g = ng
 
+     /*! \brief Modifie la quantité de bleu du pixel. nb doit être entre 0 et 255.
+    *
+    * 
+    */
     void setBleu(unsigned char const nb);
-    /// Précondition : nb  => [0, 255] sinon convertion automatique
-    /// Postcondition : b = nb
 };
 
 #endif
