@@ -15,7 +15,7 @@ private:
 
     Pixel *tab;//!< Tableau 1D de pixels
 
-    unsigned int dimx,//!< Dimension x de l'image
+    unsigned int dimx;//!< Dimension x de l'image
     unsigned int dimy;//!< Dimension y de l'image
 
 public:

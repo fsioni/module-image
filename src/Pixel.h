@@ -6,8 +6,8 @@ class Pixel
 private:
     /*// ==== Données membres === //*/
 
-    unsigned char r//!< Quantité de couleur rouge du pixel => [0...255]
-    unsigned char g//!< Quantité de couleur verte du pixel => [0...255]
+    unsigned char r;//!< Quantité de couleur rouge du pixel => [0...255]
+    unsigned char g;//!< Quantité de couleur verte du pixel => [0...255]
     unsigned char b;//!< Quantité de couleur bleue du pixel => [0...255]
 
 
