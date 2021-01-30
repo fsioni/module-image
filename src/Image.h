@@ -104,6 +104,12 @@ public:
     */
     void afficherConsole();
 
+    /*! \brief L'image est affiché dans une fenêtre SDL2.
+    *
+    *
+    */
+    void afficher();
+
 
 };
 

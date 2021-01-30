@@ -144,3 +144,7 @@ void Image::afficherConsole(){
         cout << endl;
     }
 }
+
+void Image::afficher(){
+    
+}

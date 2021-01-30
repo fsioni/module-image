@@ -1,10 +1,16 @@
-all: bin/exemple.out bin/test.out
+all: bin/exemple.out bin/test.out bin/affichage.out
 
 bin/exemple.out : obj/mainExemple.o obj/Pixel.o obj/Image.o
 	g++ -g -Wall obj/mainExemple.o obj/Pixel.o obj/Image.o -o bin/exemple.out
 
 bin/test.out : obj/mainTest.o obj/Pixel.o obj/Image.o
 	g++ -g -Wall obj/mainTest.o obj/Pixel.o obj/Image.o -o bin/test.out
+
+bin/affichage.out : obj/mainAffichage.o obj/Pixel.o obj/Image.o
+	g++ -g -Wall obj/mainAffichage.o obj/Pixel.o obj/Image.o -o bin/affichage.out
+
+obj/mainAffichage.o : src/mainAffichage.cpp src/Pixel.h src/Image.h
+	g++ -g -Wall -c src/mainAffichage.cpp -o obj/mainAffichage.o
 
 obj/mainTest.o : src/mainTest.cpp src/Pixel.h src/Image.h
 	g++ -g -Wall -c src/mainTest.cpp -o obj/mainTest.o
