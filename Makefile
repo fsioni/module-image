@@ -23,3 +23,6 @@ clean :
 
 veryclean : 
 	rm bin/*.out
+
+docs :
+	doxygen doc/image.doxy

@@ -7,25 +7,18 @@
 \begin{DoxyCompactList}\small\item\em Créer un pixel de couleur noir. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_pixel_acd857dfb724bca8d3e937114775ab3c8}{Pixel}} (unsigned char const nr, unsigned char const ng, unsigned char const nb)
 \begin{DoxyCompactList}\small\item\em Créer un pixel avec la quantité de rouge, vert et bleu désiré \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_pixel_a30f6aaf9a1d8792245070860546fa365}\label{class_pixel_a30f6aaf9a1d8792245070860546fa365}} 
 \mbox{\hyperlink{class_pixel_a30f6aaf9a1d8792245070860546fa365}{$\sim$\+Pixel}} ()
 \begin{DoxyCompactList}\small\item\em Le pixel est détruit. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_pixel_ab0ec14a265184c9452407394a29b65d2}\label{class_pixel_ab0ec14a265184c9452407394a29b65d2}} 
 unsigned char \mbox{\hyperlink{class_pixel_ab0ec14a265184c9452407394a29b65d2}{get\+Rouge}} () const
 \begin{DoxyCompactList}\small\item\em Retourne une valeur entre 0 et 255, correspondant à la quantité de rouge du pixel. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_pixel_a35afebd6965ea07c3d3c9a4c46176676}\label{class_pixel_a35afebd6965ea07c3d3c9a4c46176676}} 
 unsigned char \mbox{\hyperlink{class_pixel_a35afebd6965ea07c3d3c9a4c46176676}{get\+Vert}} () const
 \begin{DoxyCompactList}\small\item\em Retourne une valeur entre 0 et 255, correspondant à la quantité de vert du pixel. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_pixel_aa3e3cf7f2ca814ae2cfeb84cd48f3268}\label{class_pixel_aa3e3cf7f2ca814ae2cfeb84cd48f3268}} 
 unsigned char \mbox{\hyperlink{class_pixel_aa3e3cf7f2ca814ae2cfeb84cd48f3268}{get\+Bleu}} () const
 \begin{DoxyCompactList}\small\item\em Retourne une valeur entre 0 et 255, correspondant à la quantité de bleu du pixel. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_pixel_a356285232739d58c9739901ffb3ed41b}\label{class_pixel_a356285232739d58c9739901ffb3ed41b}} 
 void \mbox{\hyperlink{class_pixel_a356285232739d58c9739901ffb3ed41b}{set\+Rouge}} (unsigned char const nr)
 \begin{DoxyCompactList}\small\item\em Modifie la quantité de rouge du pixel. nr doit être entre 0 et 255. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_pixel_a5d6b0b7f93ff8180a9efc625cdfeffb0}\label{class_pixel_a5d6b0b7f93ff8180a9efc625cdfeffb0}} 
 void \mbox{\hyperlink{class_pixel_a5d6b0b7f93ff8180a9efc625cdfeffb0}{set\+Vert}} (unsigned char const ng)
 \begin{DoxyCompactList}\small\item\em Modifie la quantité de vert du pixel. ng doit être entre 0 et 255. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_pixel_a62b1693f6be7f60d930f48207c81914b}\label{class_pixel_a62b1693f6be7f60d930f48207c81914b}} 
 void \mbox{\hyperlink{class_pixel_a62b1693f6be7f60d930f48207c81914b}{set\+Bleu}} (unsigned char const nb)
 \begin{DoxyCompactList}\small\item\em Modifie la quantité de bleu du pixel. nb doit être entre 0 et 255. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -51,9 +44,82 @@ Un pixel est intialisé avec une quantité de rouge, vert et bleu à 0 \mbox{\Hy
 
 Créer un pixel avec la quantité de rouge, vert et bleu désiré 
 
-nr, ng, nb =$>$ \mbox{[}0, 255\mbox{]} sinon conversion automatique. La quantité de rouge du pixel devient \+: nr, de vert \+: ng et de bleu \+: nb. 
+nr, ng, nb =$>$ \mbox{[}0, 255\mbox{]} sinon conversion automatique. La quantité de rouge du pixel devient \+: nr, de vert \+: ng et de bleu \+: nb. \mbox{\Hypertarget{class_pixel_a30f6aaf9a1d8792245070860546fa365}\label{class_pixel_a30f6aaf9a1d8792245070860546fa365}} 
+\index{Pixel@{Pixel}!````~Pixel@{$\sim$Pixel}}
+\index{````~Pixel@{$\sim$Pixel}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{$\sim$Pixel()}{~Pixel()}}
+{\footnotesize\ttfamily Pixel\+::$\sim$\+Pixel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+
+
+Le pixel est détruit. 
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_pixel_aa3e3cf7f2ca814ae2cfeb84cd48f3268}\label{class_pixel_aa3e3cf7f2ca814ae2cfeb84cd48f3268}} 
+\index{Pixel@{Pixel}!getBleu@{getBleu}}
+\index{getBleu@{getBleu}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{getBleu()}{getBleu()}}
+{\footnotesize\ttfamily unsigned char Pixel\+::get\+Bleu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne une valeur entre 0 et 255, correspondant à la quantité de bleu du pixel. 
+
+\mbox{\Hypertarget{class_pixel_ab0ec14a265184c9452407394a29b65d2}\label{class_pixel_ab0ec14a265184c9452407394a29b65d2}} 
+\index{Pixel@{Pixel}!getRouge@{getRouge}}
+\index{getRouge@{getRouge}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{getRouge()}{getRouge()}}
+{\footnotesize\ttfamily unsigned char Pixel\+::get\+Rouge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne une valeur entre 0 et 255, correspondant à la quantité de rouge du pixel. 
+
+\mbox{\Hypertarget{class_pixel_a35afebd6965ea07c3d3c9a4c46176676}\label{class_pixel_a35afebd6965ea07c3d3c9a4c46176676}} 
+\index{Pixel@{Pixel}!getVert@{getVert}}
+\index{getVert@{getVert}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{getVert()}{getVert()}}
+{\footnotesize\ttfamily unsigned char Pixel\+::get\+Vert (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne une valeur entre 0 et 255, correspondant à la quantité de vert du pixel. 
+
+\mbox{\Hypertarget{class_pixel_a62b1693f6be7f60d930f48207c81914b}\label{class_pixel_a62b1693f6be7f60d930f48207c81914b}} 
+\index{Pixel@{Pixel}!setBleu@{setBleu}}
+\index{setBleu@{setBleu}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{setBleu()}{setBleu()}}
+{\footnotesize\ttfamily void Pixel\+::set\+Bleu (\begin{DoxyParamCaption}\item[{unsigned char const}]{nb }\end{DoxyParamCaption})}
+
+
+
+Modifie la quantité de bleu du pixel. nb doit être entre 0 et 255. 
+
+\mbox{\Hypertarget{class_pixel_a356285232739d58c9739901ffb3ed41b}\label{class_pixel_a356285232739d58c9739901ffb3ed41b}} 
+\index{Pixel@{Pixel}!setRouge@{setRouge}}
+\index{setRouge@{setRouge}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{setRouge()}{setRouge()}}
+{\footnotesize\ttfamily void Pixel\+::set\+Rouge (\begin{DoxyParamCaption}\item[{unsigned char const}]{nr }\end{DoxyParamCaption})}
+
+
+
+Modifie la quantité de rouge du pixel. nr doit être entre 0 et 255. 
+
+\mbox{\Hypertarget{class_pixel_a5d6b0b7f93ff8180a9efc625cdfeffb0}\label{class_pixel_a5d6b0b7f93ff8180a9efc625cdfeffb0}} 
+\index{Pixel@{Pixel}!setVert@{setVert}}
+\index{setVert@{setVert}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{setVert()}{setVert()}}
+{\footnotesize\ttfamily void Pixel\+::set\+Vert (\begin{DoxyParamCaption}\item[{unsigned char const}]{ng }\end{DoxyParamCaption})}
+
+
+
+Modifie la quantité de vert du pixel. ng doit être entre 0 et 255. 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
 \item 
 src/Pixel.\+h\item 
 src/Pixel.\+cpp\end{DoxyCompactItemize}
