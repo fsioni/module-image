@@ -1,20 +1,25 @@
-all: bin/executable.out
+all: bin/exemple.out bin/test.out
 
-bin/executable.out : bin/main.o bin/Pixel.o bin/Image.o 
-	g++ -g bin/main.o bin/Pixel.o bin/Image.o -o bin/executable.out
+bin/exemple.out : obj/mainExemple.o obj/Pixel.o obj/Image.o
+	g++ -g -Wall obj/mainExemple.o obj/Pixel.o obj/Image.o -o bin/exemple.out
 
-bin/main.o : src/main.cpp src/Pixel.h src/Image.h
-	g++ -g -Wall -c src/main.cpp -o bin/main.o
+bin/test.out : obj/mainTest.o obj/Pixel.o obj/Image.o
+	g++ -g -Wall obj/mainTest.o obj/Pixel.o obj/Image.o -o bin/test.out
 
-bin/Image.o : src/Image.h src/Image.cpp src/Pixel.h
-	g++ -g -Wall -c src/Image.cpp -o bin/Image.o
+obj/mainTest.o : src/mainTest.cpp src/Pixel.h src/Image.h
+	g++ -g -Wall -c src/mainTest.cpp -o obj/mainTest.o
 
-bin/Pixel.o : src/Pixel.h src/Pixel.cpp
-	g++ -g -Wall -c src/Pixel.cpp -o bin/Pixel.o
+obj/mainExemple.o : src/mainExemple.cpp src/Pixel.h src/Image.h
+	g++ -g -Wall -c src/mainExemple.cpp -o obj/mainExemple.o
+
+obj/Image.o : src/Image.h src/Image.cpp src/Pixel.h
+	g++ -g -Wall -c src/Image.cpp -o obj/Image.o
+
+obj/Pixel.o : src/Pixel.h src/Pixel.cpp
+	g++ -g -Wall -c src/Pixel.cpp -o obj/Pixel.o
 
 clean :
 	rm bin/*.o
 
 veryclean : 
 	rm bin/*.out
-
