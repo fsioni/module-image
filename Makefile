@@ -1,34 +1,38 @@
-all: bin/exemple.out bin/test.out bin/affichage.out
+CC = g++
+CFLAGS = -g -Wall
+EXECS = bin/exemple.out bin/test.out bin/affichage.out
+
+all: $(EXECS)
 
 bin/exemple.out : obj/mainExemple.o obj/Pixel.o obj/Image.o
-	g++ -g -Wall obj/mainExemple.o obj/Pixel.o obj/Image.o -o bin/exemple.out
+	$(CC) $(CFLAGS) $^ -o $@
 
 bin/test.out : obj/mainTest.o obj/Pixel.o obj/Image.o
-	g++ -g -Wall obj/mainTest.o obj/Pixel.o obj/Image.o -o bin/test.out
+	$(CC) $(CFLAGS) $^ -o $@
 
 bin/affichage.out : obj/mainAffichage.o obj/Pixel.o obj/Image.o
-	g++ -g -Wall obj/mainAffichage.o obj/Pixel.o obj/Image.o -o bin/affichage.out
+	$(CC) $(CFLAGS) $^ -o $@
 
 obj/mainAffichage.o : src/mainAffichage.cpp src/Pixel.h src/Image.h
-	g++ -g -Wall -c src/mainAffichage.cpp -o obj/mainAffichage.o
+	$(CC) $(CFLAGS) -c $< -o $@
 
 obj/mainTest.o : src/mainTest.cpp src/Pixel.h src/Image.h
-	g++ -g -Wall -c src/mainTest.cpp -o obj/mainTest.o
+	$(CC) $(CFLAGS) -c $< -o $@
 
 obj/mainExemple.o : src/mainExemple.cpp src/Pixel.h src/Image.h
-	g++ -g -Wall -c src/mainExemple.cpp -o obj/mainExemple.o
+	$(CC) $(CFLAGS) -c $< -o $@
 
-obj/Image.o : src/Image.h src/Image.cpp src/Pixel.h
-	g++ -g -Wall -c src/Image.cpp -o obj/Image.o
+obj/Image.o : src/Image.cpp src/Image.h src/Pixel.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
-obj/Pixel.o : src/Pixel.h src/Pixel.cpp
-	g++ -g -Wall -c src/Pixel.cpp -o obj/Pixel.o
+obj/Pixel.o : src/Pixel.cpp src/Pixel.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	rm bin/*.o
+	rm obj/*.o
 
 veryclean : 
-	rm bin/*.out
+	rm $(EXECS)
 
 docs :
 	doxygen doc/image.doxy
