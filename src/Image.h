@@ -22,10 +22,15 @@ private:
     unsigned int dimx;//!< Dimension x de l'image
     unsigned int dimy;//!< Dimension y de l'image
 
+    unsigned int dimFenetreX = 200, dimFenetreY = 200;
+    SDL_Window * window;
+    SDL_Renderer * renderer;
+
     /*// === Fonctions membres privées === //*/
     void afficherInit();
     void afficherBoucle();
     void afficherDetruit();
+    void sdlAff();
 
 public:
     /*// ==== Fonctions membres publiques === //*/

@@ -152,13 +152,65 @@ void Image::afficher(){
 }
 
 void Image::afficherInit(){
+    // Initialisation de la SDL
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        cout << "Erreur lors de l'initialisation de la SDL : " << SDL_GetError() << endl;
+        SDL_Quit();
+        exit(1);
+    }
+
+    // Creation de la fenetre
+    window = SDL_CreateWindow("Affichage image", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dimFenetreX, dimFenetreY, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    if (window == NULL) {
+        cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << endl; 
+        SDL_Quit(); 
+        exit(1);
+    }
+
+    renderer = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED);
 
 }
 
 void Image::afficherBoucle(){
+    SDL_Event events;
+	bool quit = false;
 
+	// tant que ce n'est pas la fin ...
+	while (!quit) {
+		// tant qu'il y a des evenements � traiter (cette boucle n'est pas bloquante)
+		while (SDL_PollEvent(&events)) {
+			if (events.type == SDL_QUIT) quit = true;           // Si l'utilisateur a clique sur la croix de fermeture
+			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
+				switch (events.key.keysym.scancode) {
+                    case SDL_SCANCODE_T:
+                        //zoom()
+                        break;
+                    case SDL_SCANCODE_G:
+                        //dezoom()
+                        break;
+                    case SDL_SCANCODE_ESCAPE:
+                    case SDL_SCANCODE_Q:
+                        quit = true;
+                        break;
+                    default: break;
+				}
+			}
+		}
+
+		// on affiche le jeu sur le buffer cach�
+		sdlAff();
+
+		// on permute les deux buffers (cette fonction ne doit se faire qu'une seule fois dans la boucle)
+        SDL_RenderPresent(renderer);
+	}
 }
 
 void Image::afficherDetruit(){
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}
 
+void Image::sdlAff(){
+    //afficher l'image
 }
