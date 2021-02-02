@@ -4,3 +4,4 @@
 *.out
 callgrind*
 *.ppm
+.DS_Store
