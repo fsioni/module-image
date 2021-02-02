@@ -4,7 +4,7 @@
 class Pixel
 {
 private:
-    /*// ==== Données membres === //*/
+    /*// ==== Données membres privées === //*/
 
     unsigned char r;//!< Quantité de couleur rouge du pixel => [0...255]
     unsigned char g;//!< Quantité de couleur verte du pixel => [0...255]
@@ -12,7 +12,7 @@ private:
 
 
 public:
-    /*// ==== Fonctions membres === //*/
+    /*// ==== Fonctions membres publiques === //*/
 
     /*! \brief Créer un pixel de couleur noir
     *
