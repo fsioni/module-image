@@ -3,6 +3,10 @@
 
 #include <string>
 #include <fstream> 
+#include <SDL.h>
+#include <SDL_ttf.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 #include "Pixel.h"
 
 using namespace std;
@@ -11,15 +15,20 @@ using namespace std;
 class Image
 {
 private:
-    /*// ==== Données membres === //*/
+    /*// ==== Données membres privées === //*/
 
     Pixel *tab;//!< Tableau 1D de pixels
 
     unsigned int dimx;//!< Dimension x de l'image
     unsigned int dimy;//!< Dimension y de l'image
 
+    /*// === Fonctions membres privées === //*/
+    void afficherInit();
+    void afficherBoucle();
+    void afficherDetruit();
+
 public:
-    /*// ==== Fonctions membres === //*/
+    /*// ==== Fonctions membres publiques === //*/
 
     /*! \brief Créer une image vide.
     *
@@ -81,6 +90,8 @@ public:
     *
     */
     void setPix (unsigned int x, unsigned int y, Pixel const & couleur);
+
+    /*// === Fonctions membres publiques === //*/
 
     /*! \brief Sauvegarde l'image dans le fichier 'filename'
     *

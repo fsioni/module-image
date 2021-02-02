@@ -146,5 +146,19 @@ void Image::afficherConsole(){
 }
 
 void Image::afficher(){
-    
+    afficherInit();
+    afficherBoucle();
+    afficherDetruit();
+}
+
+void Image::afficherInit(){
+
+}
+
+void Image::afficherBoucle(){
+
+}
+
+void Image::afficherDetruit(){
+
 }
