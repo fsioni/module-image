@@ -1,14 +1,23 @@
 \hypertarget{class_image}{}\doxysection{Référence de la classe Image}
 \label{class_image}\index{Image@{Image}}
+
+
+Classe représentant une image.  
+
+
+
+
+{\ttfamily \#include $<$Image.\+h$>$}
+
 \doxysubsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_image_a58edd1c45b4faeb5f789b0d036d02313}{Image}} ()
-\begin{DoxyCompactList}\small\item\em Créer une image vide. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_image_a781829417e05ac62d5c1ea090a8844d1}{Image}} (unsigned int dimensionX, unsigned int dimensionY)
-\begin{DoxyCompactList}\small\item\em Créer une image noire de dimension XxY. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructeur avec dimensions de l\textquotesingle{}image en paramètre. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_image_a0294f63700543e11c0f0da85601c7ae5}{$\sim$\+Image}} ()
-\begin{DoxyCompactList}\small\item\em Supprime l\textquotesingle{}image. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_image_a82ffef6c89927b0cc755a3fe2fec637b}{test\+Regression}} ()
 \begin{DoxyCompactList}\small\item\em Teste la validité des fonctions de la classe \mbox{\hyperlink{class_image}{Image}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_image_a62cd34f90312841849c461276e39183f}{dessiner\+Rectangle}} (unsigned int Xmin, unsigned int Ymin, unsigned int Xmax, unsigned int Ymax, \mbox{\hyperlink{class_pixel}{Pixel}} const \&couleur)
@@ -16,16 +25,23 @@ void \mbox{\hyperlink{class_image_a62cd34f90312841849c461276e39183f}{dessiner\+R
 void \mbox{\hyperlink{class_image_aa090a4380aeb69d04c7173fbb85b25b0}{effacer}} (\mbox{\hyperlink{class_pixel}{Pixel}} const \&couleur)
 \begin{DoxyCompactList}\small\item\em Efface l\textquotesingle{}image en la remplissant de la couleur en paramètre. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_pixel}{Pixel}} \& \mbox{\hyperlink{class_image_a761913306289b49fe427004170124ce4}{get\+Pix}} (unsigned int x, unsigned int y) const
-\begin{DoxyCompactList}\small\item\em Récupère le pixel original aux coordonnées (x,y) de l\textquotesingle{}image. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Retourne un l\textquotesingle{}addresse d\textquotesingle{}un \mbox{\hyperlink{class_pixel}{Pixel}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_image_ad114a2f7473e441b39c3019dd7197ad2}{set\+Pix}} (unsigned int x, unsigned int y, \mbox{\hyperlink{class_pixel}{Pixel}} const \&couleur)
-\begin{DoxyCompactList}\small\item\em Remplace le pixel aux coordonnées (x,y) par la couleur. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Modifie un \mbox{\hyperlink{class_pixel}{Pixel}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_image_af870cb0c00a370927e6957f99a409586}{sauver}} (const string \&filename) const
-\begin{DoxyCompactList}\small\item\em Sauvegarde l\textquotesingle{}image dans le fichier \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sauvegarde l\textquotesingle{}image dans un fichier. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_image_a504778b71d66c4da931cad497e2ec249}{ouvrir}} (const string \&filename)
 \begin{DoxyCompactList}\small\item\em Ouvre l\textquotesingle{}image .pmm sous le nom/chemin \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_image_aa3cc6f7401625c11dcd5ef003f37e4fa}{afficher\+Console}} ()
-\begin{DoxyCompactList}\small\item\em L\textquotesingle{}image est affiché dans la console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Affichage console de l\textquotesingle{}image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_image_a4d957034ad17e3911a4d9f7decdda22c}{afficher}} ()
+\begin{DoxyCompactList}\small\item\em Affichage dans une fenêtre graphique. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Description détaillée}
+Classe représentant une image. 
+
+La classe représente une image de dimension dimx et dimy. La couleur de chaque pixel est stocké dans un tableau de type \mbox{\hyperlink{class_pixel}{Pixel}}. 
 
 \doxysubsection{Documentation des constructeurs et destructeur}
 \mbox{\Hypertarget{class_image_a58edd1c45b4faeb5f789b0d036d02313}\label{class_image_a58edd1c45b4faeb5f789b0d036d02313}} 
@@ -36,9 +52,9 @@ void \mbox{\hyperlink{class_image_aa3cc6f7401625c11dcd5ef003f37e4fa}{afficher\+C
 
 
 
-Créer une image vide. 
+Constructeur par défaut. 
 
-Créer une image de dimensions 0x0 sans pixel \mbox{\Hypertarget{class_image_a781829417e05ac62d5c1ea090a8844d1}\label{class_image_a781829417e05ac62d5c1ea090a8844d1}} 
+Créer une \mbox{\hyperlink{class_image}{Image}} de dimensions 0 $\ast$ 0 (image vide). \mbox{\Hypertarget{class_image_a781829417e05ac62d5c1ea090a8844d1}\label{class_image_a781829417e05ac62d5c1ea090a8844d1}} 
 \index{Image@{Image}!Image@{Image}}
 \index{Image@{Image}!Image@{Image}}
 \doxysubsubsection{\texorpdfstring{Image()}{Image()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -46,9 +62,16 @@ Créer une image de dimensions 0x0 sans pixel \mbox{\Hypertarget{class_image_a78
 
 
 
-Créer une image noire de dimension XxY. 
+Constructeur avec dimensions de l\textquotesingle{}image en paramètre. 
 
-\mbox{\Hypertarget{class_image_a0294f63700543e11c0f0da85601c7ae5}\label{class_image_a0294f63700543e11c0f0da85601c7ae5}} 
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em dimensionX} & \+: entier positif, taille de l\textquotesingle{}image sur l\textquotesingle{}axe X (horizontal). \\
+\hline
+\mbox{\texttt{ in}}  & {\em dimensionY} & \+: entier positif, taille de l\textquotesingle{}image sur l\textquotesingle{}axe Y (vertical).\\
+\hline
+\end{DoxyParams}
+Créer une \mbox{\hyperlink{class_image}{Image}} de dimensions (dimensionX , dimensionY) entièrement noir car appel du constructeur par défaut de la classe \mbox{\hyperlink{class_pixel}{Pixel}} qui créer un \mbox{\hyperlink{class_pixel}{Pixel}} noir. \mbox{\Hypertarget{class_image_a0294f63700543e11c0f0da85601c7ae5}\label{class_image_a0294f63700543e11c0f0da85601c7ae5}} 
 \index{Image@{Image}!````~Image@{$\sim$Image}}
 \index{````~Image@{$\sim$Image}!Image@{Image}}
 \doxysubsubsection{\texorpdfstring{$\sim$Image()}{~Image()}}
@@ -56,12 +79,22 @@ Créer une image noire de dimension XxY.
 
 
 
-Supprime l\textquotesingle{}image. 
+Destructeur. 
 
-
+Destructeur de la classe \mbox{\hyperlink{class_image}{Image}}. 
 
 \doxysubsection{Documentation des fonctions membres}
-\mbox{\Hypertarget{class_image_aa3cc6f7401625c11dcd5ef003f37e4fa}\label{class_image_aa3cc6f7401625c11dcd5ef003f37e4fa}} 
+\mbox{\Hypertarget{class_image_a4d957034ad17e3911a4d9f7decdda22c}\label{class_image_a4d957034ad17e3911a4d9f7decdda22c}} 
+\index{Image@{Image}!afficher@{afficher}}
+\index{afficher@{afficher}!Image@{Image}}
+\doxysubsubsection{\texorpdfstring{afficher()}{afficher()}}
+{\footnotesize\ttfamily void Image\+::afficher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Affichage dans une fenêtre graphique. 
+
+Affichage de l\textquotesingle{}image dans une fenêtre graphique avec SDL2. \mbox{\Hypertarget{class_image_aa3cc6f7401625c11dcd5ef003f37e4fa}\label{class_image_aa3cc6f7401625c11dcd5ef003f37e4fa}} 
 \index{Image@{Image}!afficherConsole@{afficherConsole}}
 \index{afficherConsole@{afficherConsole}!Image@{Image}}
 \doxysubsubsection{\texorpdfstring{afficherConsole()}{afficherConsole()}}
@@ -69,9 +102,9 @@ Supprime l\textquotesingle{}image.
 
 
 
-L\textquotesingle{}image est affiché dans la console. 
+Affichage console de l\textquotesingle{}image. 
 
-La console affiche l\textquotesingle{}image en indiquant tous les pixels sous la forme r g b. Exemple 0 255 40 \mbox{\Hypertarget{class_image_a62cd34f90312841849c461276e39183f}\label{class_image_a62cd34f90312841849c461276e39183f}} 
+La console affiche l\textquotesingle{}image en indiquant tous les pixels sous la forme r g b. Exemple 0 255 40. \mbox{\Hypertarget{class_image_a62cd34f90312841849c461276e39183f}\label{class_image_a62cd34f90312841849c461276e39183f}} 
 \index{Image@{Image}!dessinerRectangle@{dessinerRectangle}}
 \index{dessinerRectangle@{dessinerRectangle}!Image@{Image}}
 \doxysubsubsection{\texorpdfstring{dessinerRectangle()}{dessinerRectangle()}}
@@ -81,7 +114,22 @@ La console affiche l\textquotesingle{}image en indiquant tous les pixels sous la
 
 Dessine un rectangle plein de la couleur dans l\textquotesingle{}image. 
 
-Tous les pixels se trouvant entre les coordonnées sont remplis de la couleur. \mbox{\Hypertarget{class_image_aa090a4380aeb69d04c7173fbb85b25b0}\label{class_image_aa090a4380aeb69d04c7173fbb85b25b0}} 
+Tous les pixels se trouvant entre les coordonnées données sont remplis de la couleur du \mbox{\hyperlink{class_pixel}{Pixel}} passé en paramètre.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em Xmin} & \+: entier positif, coordonnée minimum du rectangle sur l\textquotesingle{}axe X (horizontal). \\
+\hline
+\mbox{\texttt{ in}}  & {\em Ymin} & \+: entier positif, coordonnée minimum du rectangle sur l\textquotesingle{}axe Y (vertical). \\
+\hline
+\mbox{\texttt{ in}}  & {\em Xmax} & \+: entier positif, coordonnée maximum du rectangle sur l\textquotesingle{}axe X (horizontal). \\
+\hline
+\mbox{\texttt{ in}}  & {\em Ymax} & \+: entier positif, coordonnée maximum du rectangle sur l\textquotesingle{}axe Y (vertical). \\
+\hline
+\mbox{\texttt{ in}}  & {\em couleur} & \+: \mbox{\hyperlink{class_pixel}{Pixel}}, désigne le couleur du rectangle dessiné. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_image_aa090a4380aeb69d04c7173fbb85b25b0}\label{class_image_aa090a4380aeb69d04c7173fbb85b25b0}} 
 \index{Image@{Image}!effacer@{effacer}}
 \index{effacer@{effacer}!Image@{Image}}
 \doxysubsubsection{\texorpdfstring{effacer()}{effacer()}}
@@ -91,7 +139,14 @@ Tous les pixels se trouvant entre les coordonnées sont remplis de la couleur. \
 
 Efface l\textquotesingle{}image en la remplissant de la couleur en paramètre. 
 
-Tous les pixels de l\textquotesingle{}image sont remplacés par la couleur \mbox{\Hypertarget{class_image_a761913306289b49fe427004170124ce4}\label{class_image_a761913306289b49fe427004170124ce4}} 
+Tous les pixels de l\textquotesingle{}image sont remplacés par la couleur du \mbox{\hyperlink{class_pixel}{Pixel}} passé en paramètre.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em couleur} & \+: \mbox{\hyperlink{class_pixel}{Pixel}}, désigne la couleur avec laquelle sera remplie l\textquotesingle{}image. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_image_a761913306289b49fe427004170124ce4}\label{class_image_a761913306289b49fe427004170124ce4}} 
 \index{Image@{Image}!getPix@{getPix}}
 \index{getPix@{getPix}!Image@{Image}}
 \doxysubsubsection{\texorpdfstring{getPix()}{getPix()}}
@@ -99,8 +154,17 @@ Tous les pixels de l\textquotesingle{}image sont remplacés par la couleur \mbox
 
 
 
-Récupère le pixel original aux coordonnées (x,y) de l\textquotesingle{}image. 
+Retourne un l\textquotesingle{}addresse d\textquotesingle{}un \mbox{\hyperlink{class_pixel}{Pixel}}. 
 
+Retourne l\textquotesingle{}addresse d\textquotesingle{}un \mbox{\hyperlink{class_pixel}{Pixel}} aux coordonnées (x,y) de l\textquotesingle{}image.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em x} & \+: entier positif, coordonnée sur l\textquotesingle{}axe X (horizontal) du \mbox{\hyperlink{class_pixel}{Pixel}} souhaité. \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & \+: entier positif, coordonnée sur l\textquotesingle{}axe Y (vertical) du \mbox{\hyperlink{class_pixel}{Pixel}} souhaité. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_image_a504778b71d66c4da931cad497e2ec249}\label{class_image_a504778b71d66c4da931cad497e2ec249}} 
 \index{Image@{Image}!ouvrir@{ouvrir}}
 \index{ouvrir@{ouvrir}!Image@{Image}}
@@ -111,7 +175,14 @@ Récupère le pixel original aux coordonnées (x,y) de l\textquotesingle{}image.
 
 Ouvre l\textquotesingle{}image .pmm sous le nom/chemin \textquotesingle{}filename\textquotesingle{}. 
 
-L\textquotesingle{}image sur laquelle la fonction est appellée devient celle ouverte. \mbox{\Hypertarget{class_image_af870cb0c00a370927e6957f99a409586}\label{class_image_af870cb0c00a370927e6957f99a409586}} 
+Ouvre l\textquotesingle{}image dans le nom et chemin est passé en paramètre.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em filename} & \+: chaine de charactères (string), nom et chemin du fichier de l\textquotesingle{}image à ouvrir. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_image_af870cb0c00a370927e6957f99a409586}\label{class_image_af870cb0c00a370927e6957f99a409586}} 
 \index{Image@{Image}!sauver@{sauver}}
 \index{sauver@{sauver}!Image@{Image}}
 \doxysubsubsection{\texorpdfstring{sauver()}{sauver()}}
@@ -119,9 +190,16 @@ L\textquotesingle{}image sur laquelle la fonction est appellée devient celle ou
 
 
 
-Sauvegarde l\textquotesingle{}image dans le fichier \textquotesingle{}filename\textquotesingle{}. 
+Sauvegarde l\textquotesingle{}image dans un fichier. 
 
-Possibilité de mettre un nom de fichier pour s\textquotesingle{}enregister dans le répertoire courant ou de mettre un chemin, relatif ou absolu. L\textquotesingle{}image est enregisté sous un format .pmm, pouvant s\textquotesingle{}ouvrir avec la fonction \mbox{\hyperlink{class_image_a504778b71d66c4da931cad497e2ec249}{ouvrir()}}. \mbox{\Hypertarget{class_image_ad114a2f7473e441b39c3019dd7197ad2}\label{class_image_ad114a2f7473e441b39c3019dd7197ad2}} 
+Possibilité de mettre un nom de fichier pour s\textquotesingle{}enregister dans le répertoire courant ou de mettre un chemin, relatif ou absolu. L\textquotesingle{}image est enregisté sous un format .pmm, pouvant s\textquotesingle{}ouvrir avec la fonction \mbox{\hyperlink{class_image_a504778b71d66c4da931cad497e2ec249}{ouvrir()}}.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em filename} & \+: chaine de charactères (string), nom et chemin du fichier dans lequel on veut sauvegarder l\textquotesingle{}image. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_image_ad114a2f7473e441b39c3019dd7197ad2}\label{class_image_ad114a2f7473e441b39c3019dd7197ad2}} 
 \index{Image@{Image}!setPix@{setPix}}
 \index{setPix@{setPix}!Image@{Image}}
 \doxysubsubsection{\texorpdfstring{setPix()}{setPix()}}
@@ -129,8 +207,19 @@ Possibilité de mettre un nom de fichier pour s\textquotesingle{}enregister dans
 
 
 
-Remplace le pixel aux coordonnées (x,y) par la couleur. 
+Modifie un \mbox{\hyperlink{class_pixel}{Pixel}}. 
 
+Modifie la couleur du \mbox{\hyperlink{class_pixel}{Pixel}} aux coordonnées (x,y) par celle passée en paramètre.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em x} & \+: entier positif, coordonnée sur l\textquotesingle{}axe X (horizontal) du \mbox{\hyperlink{class_pixel}{Pixel}} à modifier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & \+: entier positif, coordonnée sur l\textquotesingle{}axe Y (vertical) du \mbox{\hyperlink{class_pixel}{Pixel}} à modifier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em couleur} & \+: \mbox{\hyperlink{class_pixel}{Pixel}}, couleur qui va être assigné au \mbox{\hyperlink{class_pixel}{Pixel}} au coordonnée (x, y). \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_image_a82ffef6c89927b0cc755a3fe2fec637b}\label{class_image_a82ffef6c89927b0cc755a3fe2fec637b}} 
 \index{Image@{Image}!testRegression@{testRegression}}
 \index{testRegression@{testRegression}!Image@{Image}}
@@ -143,7 +232,7 @@ Teste la validité des fonctions de la classe \mbox{\hyperlink{class_image}{Imag
 
 Effectue différents tests pour vérifier l\textquotesingle{}intégrité des fonctions de la classe \mbox{\hyperlink{class_image}{Image}}. En manipulant différentes instances d\textquotesingle{}images, en les modifiant, etc.. 
 
-La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
 src/Image.\+h\item 
 src/Image.\+cpp\end{DoxyCompactItemize}

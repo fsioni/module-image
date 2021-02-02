@@ -8,7 +8,7 @@
 using namespace std;
 
 /*! \class Image
-*   \brief classe représentant une image
+*   \brief Classe représentant une image.
 *   
 *   La classe représente une image de dimension dimx et dimy. 
 *   La couleur de chaque pixel est stocké dans un tableau de type Pixel. 
