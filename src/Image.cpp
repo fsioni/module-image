@@ -28,63 +28,89 @@ Pixel& Image::getPix(unsigned int x, unsigned int y) const{
 }
 
 void Image::setPix(unsigned int x, unsigned int y, const Pixel& couleur){
-    assert(x<=dimx && y<=dimy);
+    assert(x<dimx && y<dimy);
     tab[y*dimx+x] = couleur;
 }
 
 
 void Image::dessinerRectangle(unsigned int Xmin, unsigned int Ymin, 
 unsigned int Xmax, unsigned int Ymax, const Pixel& couleur){
-    assert(Xmin<Xmax && Xmin < dimx && Xmax <= dimx && Ymin < Ymax && 
-    Ymin < dimy && Ymax <= dimy);
+ 
+    assert(Xmin < Xmax && Ymin < Ymax && 
+           Xmax < dimx && Ymax < dimy );
 
-    for(unsigned int i=Xmin; i<Xmax; i++)
-        for(unsigned int j=Ymin; j<Ymax; j++)
+    for(unsigned int i=Xmin; i<=Xmax; i++)
+        for(unsigned int j=Ymin; j<=Ymax; j++)
             setPix(i, j, couleur);
 }
 
 
 void Image::effacer(Pixel const & couleur){
-    dessinerRectangle(0, 0, dimx, dimy, couleur);
+    dessinerRectangle(0, 0, dimx-1, dimy-1, couleur);
 }
 
 void Image::testRegression(){
-    Pixel p(255, 0, 0);
-    Pixel x(0, 0, 255);
-    Pixel n(0, 255, 0);
+    Pixel rouge(255, 0, 0);
+    Pixel bleu(0, 0, 255);
 
-    cout << "Premiere image" << endl;
-    for(unsigned int i=0; i<dimx; i++){
-        for(unsigned int j=0; j<dimy; j++){            
-            setPix(i, j, p); //test setPix()
+    int dimx_ = 10, dimy_ = 10;
+    Image im(dimx_, dimy_);
+    Image im2(dimx_, dimy_);
 
-            cout << "(" << (int)getPix(i, j).getRouge() << " ," <<  
-            (int)getPix(i, j).getVert() << " ," << (int)getPix(i, j).getBleu()
-            << ")" << " " << endl; //test getPix()            
-            }
-    }
+    // test si l'image initialisé est bien toute noire
+    for(unsigned int i = 0; i < dimx_ ; i++)
+        for(unsigned int j = 0; j < dimy_ ; j++){
+            Pixel p = im.getPix(i, j);
+            assert(p.getRouge() == p.getVert() == p.getBleu() == 0);
+        }
 
-    dessinerRectangle(0, 0, dimx, dimy, x); // test dessiner Rectangle
-    cout << "Nouvelle image" << endl;
-    for(unsigned int i=0; i<dimx; i++){
-        for(unsigned int j=0; j<dimy; j++){    
-            cout << "(" << (int)getPix(i, j).getRouge() << " ," <<
-            (int)getPix(i, j).getVert() << " ," << (int)getPix(i, j).getBleu()
-            << ")" << " " << endl; //test getPix()            
-            }
-    }
+    // test du mutateur de Pixel
+    im.setPix(0, 0, bleu);
+    Pixel p = im.getPix(0, 0);
+    assert(p.getRouge() == bleu.getRouge() &&
+           p.getVert() == bleu.getVert() && 
+           p.getBleu() == bleu.getBleu());
+    
+    // test si l'image à bien été effacer et remplacer avec la bonne couleur
+    im.effacer(rouge);
+    for(unsigned int i = 0; i < dimx_ ; i++)
+        for(unsigned int j = 0; j < dimy_ ; j++){
+            Pixel p = im.getPix(i, j);
+            assert(p.getRouge() == rouge.getRouge() &&
+                   p.getVert() == rouge.getVert() && 
+                   p.getBleu() == rouge.getBleu());
+        }
 
-    effacer(n);
-    cout << "Nouvelle image" << endl;
-    for(unsigned int i=0; i<dimx; i++){
-        for(unsigned int j=0; j<dimy; j++){    
-            cout << "(" << (int)getPix(i, j).getRouge() << " ," <<
-            (int)getPix(i, j).getVert() << " ," << (int)getPix(i, j).getBleu()
-            << ")" << " " << endl; //test getPix()            
-            }
-    }
+    // test de la fonction dessinerRectangle
+    int xmin = 0, ymin = 0, xmax = 4, ymax = 4;
+    im.dessinerRectangle(xmin, ymin, xmax, ymax, bleu);
 
-    cout << endl;
+    for(unsigned int i = 0; i < dimx_ ; i++)
+        for(unsigned int j = 0; j < dimy_ ; j++){
+            Pixel p = im.getPix(i, j);
+            if(i >= xmin && i <= xmax && j >= ymin && j <= ymax)
+                assert(p.getRouge() == bleu.getRouge() &&
+                       p.getVert() == bleu.getVert() && 
+                       p.getBleu() == bleu.getBleu());
+            else
+                assert(p.getRouge() == rouge.getRouge() &&
+                       p.getVert() == rouge.getVert() && 
+                       p.getBleu() == rouge.getBleu());
+        }
+
+    // test de sauver et ouvrir
+    string filename("./data/testRegression.ppm");
+    im.sauver(filename);
+    im2.ouvrir(filename);
+
+    for(unsigned int i = 0; i < dimx_ ; i++)
+        for(unsigned int j = 0; j < dimy_ ; j++){
+            Pixel p = im.getPix(i, j);
+            Pixel p2 = im2.getPix(i, j);
+            assert(p.getRouge() == p2.getRouge() &&
+                   p.getVert()  == p2.getVert()  && 
+                   p.getBleu()  == p2.getBleu()   );
+        }
 }
 
 
