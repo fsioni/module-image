@@ -7,41 +7,50 @@
 
 using namespace std;
 
+/*! \class Image
+*   \brief classe représentant une image
+*   
+*   La classe représente une image de dimension dimx et dimy. 
+*   La couleur de chaque pixel est stocké dans un tableau de type Pixel. 
+*/
 
 class Image
 {
 private:
     /*// ==== Données membres === //*/
 
-    Pixel *tab;//!< Tableau 1D de pixels
+    Pixel *tab; /*!< Tableau 1D de Pixel. */
 
-    unsigned int dimx;//!< Dimension x de l'image
-    unsigned int dimy;//!< Dimension y de l'image
+    unsigned int dimx; /*!< Dimension de l'image sur l'axe x (horizontal). */
+    unsigned int dimy; /*!< Dimension de l'image sur l'axe y (vertical). */
 
 public:
     /*// ==== Fonctions membres === //*/
 
-    /*! \brief Créer une image vide.
+    /*! \brief Constructeur par défaut.
     *
     *
-    *  Créer une image de dimensions 0x0 sans pixel
+    *  Créer une Image de dimensions 0 * 0 (image vide).
     */
     Image();
 
-    /*! \brief Créer une image noire de dimension XxY
-    *
-    *
+    /*! \brief Constructeur avec dimensions de l'image en paramètre.
+    *   \param [in] dimensionX : entier positif, taille de l'image sur l'axe X (horizontal).
+    *   \param [in] dimensionY : entier positif, taille de l'image sur l'axe Y (vertical).
+    *   
+    *   Créer une Image de dimensions (dimensionX , dimensionY) entièrement noir car 
+    *   appel du constructeur par défaut de la classe Pixel qui créer un Pixel noir.
     */
     Image (unsigned int dimensionX, unsigned int dimensionY);
    
-   /*! \brief Supprime l'image
+   /*! \brief Destructeur.
     *
-    *
+    *  Destructeur de la classe Image.
     */
     ~Image();
 
 
-    /*! \brief Teste la validité des fonctions de la classe Image
+    /*! \brief Teste la validité des fonctions de la classe Image.
     *
     *
     *  Effectue différents tests pour vérifier l'intégrité des fonctions de la classe Image. En manipulant différentes
@@ -51,16 +60,22 @@ public:
 
     /*! \brief Dessine un rectangle plein de la couleur dans l'image.
     *
-    *
-    *  Tous les pixels se trouvant entre les coordonnées sont remplis de la couleur.
+    *   Tous les pixels se trouvant entre les coordonnées données sont remplis de la couleur du Pixel passé en paramètre.
+    * 
+    *   \param [in] Xmin : entier positif, coordonnée minimum du rectangle sur l'axe X (horizontal). 
+    *   \param [in] Ymin : entier positif, coordonnée minimum du rectangle sur l'axe Y (vertical).
+    *   \param [in] Xmax : entier positif, coordonnée maximum du rectangle sur l'axe X (horizontal).
+    *   \param [in] Ymax : entier positif, coordonnée maximum du rectangle sur l'axe Y (vertical).
+    *   \param [in] couleur : Pixel, désigne le couleur du rectangle dessiné.
     */
     void dessinerRectangle(unsigned int Xmin, unsigned int Ymin, unsigned int Xmax, unsigned int Ymax, Pixel const & couleur);
 
 
     /*! \brief Efface l'image en la remplissant de la couleur en paramètre
-    *
-    *
-    *  Tous les pixels de l'image sont remplacés par la couleur
+    *   
+    *   Tous les pixels de l'image sont remplacés par la couleur du Pixel passé en paramètre.
+    * 
+    *   \param [in] couleur : Pixel, désigne la couleur avec laquelle sera remplie l'image.
     */
     void effacer(Pixel const & couleur);
 
@@ -68,45 +83,53 @@ public:
 
     /*// ==== Accesseurs === //*/
 
-    /*! \brief Récupère le pixel original aux coordonnées (x,y) de l'image.
-    *
-    *
+    /*! \brief Retourne un l'addresse d'un Pixel.
+    * 
+    *   Retourne l'addresse d'un Pixel aux coordonnées (x,y) de l'image.
+    * 
+    *   \param [in] x : entier positif, coordonnée sur l'axe X (horizontal) du Pixel souhaité.
+    *   \param [in] y : entier positif, coordonnée sur l'axe Y (vertical) du Pixel souhaité.
     */
     Pixel& getPix(unsigned int x, unsigned int y) const;
 
     /*// ==== Mutateurs === //*/
 
-    /*! \brief Remplace le pixel aux coordonnées (x,y) par la couleur.
-    *
-    *
+    /*! \brief Modifie un Pixel.
+    * 
+    *   Modifie la couleur du Pixel aux coordonnées (x,y) par celle passée en paramètre.
+    * 
+    *   \param [in] x : entier positif, coordonnée sur l'axe X (horizontal) du Pixel à modifier.
+    *   \param [in] y : entier positif, coordonnée sur l'axe Y (vertical) du Pixel à modifier.
+    *   \param [in] couleur : Pixel, couleur qui va être assigné au Pixel au coordonnée (x, y).
     */
     void setPix (unsigned int x, unsigned int y, Pixel const & couleur);
 
-    /*! \brief Sauvegarde l'image dans le fichier 'filename'
-    *
+    /*! \brief Sauvegarde l'image dans un fichier. 
     *
     *  Possibilité de mettre un nom de fichier pour s'enregister dans le répertoire courant ou de mettre un chemin,
     *  relatif ou absolu. L'image est enregisté sous un format .pmm, pouvant s'ouvrir avec la fonction ouvrir().
+    * 
+    *   \param [in] filename : chaine de charactères (string), nom et chemin du fichier dans lequel on veut sauvegarder l'image.
     */
     void sauver(const string & filename) const;
 
     /*! \brief Ouvre l'image .pmm sous le nom/chemin 'filename'
     *
-    *
-    *  L'image sur laquelle la fonction est appellée devient celle ouverte.
+    *   Ouvre l'image dans le nom et chemin est passé en paramètre.
+    * 
+    *   \param [in] filename : chaine de charactères (string), nom et chemin du fichier de l'image à ouvrir.
     */
     void ouvrir(const string & filename);
 
-    /*! \brief L'image est affiché dans la console.
+    /*! \brief Affichage console de l'image.
     *
-    *
-    *  La console affiche l'image en indiquant tous les pixels sous la forme r g b. Exemple 0 255 40
+    *  La console affiche l'image en indiquant tous les pixels sous la forme r g b. Exemple 0 255 40.
     */
     void afficherConsole();
 
-    /*! \brief L'image est affiché dans une fenêtre SDL2.
+    /*! \brief Affichage dans une fenêtre graphique.
     *
-    *
+    *   Affichage de l'image dans une fenêtre graphique avec SDL2.
     */
     void afficher();
 
