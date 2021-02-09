@@ -126,7 +126,9 @@ public:
     */
     void afficher();
 
+    void sdlClearWindow();
 
+    void sdlAffImage();
 };
 
 

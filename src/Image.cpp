@@ -160,7 +160,8 @@ void Image::afficherInit(){
     }
 
     // Creation de la fenetre
-    window = SDL_CreateWindow("Affichage image", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dimFenetreX, dimFenetreY, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    window = SDL_CreateWindow("Affichage image", SDL_WINDOWPOS_CENTERED,
+     SDL_WINDOWPOS_CENTERED, dimFenetreX, dimFenetreY, SDL_WINDOW_SHOWN);
     if (window == NULL) {
         cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << endl; 
         SDL_Quit(); 
@@ -212,5 +213,23 @@ void Image::afficherDetruit(){
 }
 
 void Image::sdlAff(){
-    //afficher l'image
+    sdlClearWindow();
+    sdlAffImage();
+}
+
+void Image::sdlClearWindow(){
+            SDL_SetRenderDrawColor(renderer, 150, 150, 150, 255);
+            SDL_RenderFillRect(renderer, NULL);
+            SDL_RenderPresent(renderer);
+}
+
+void Image::sdlAffImage(){
+    for (unsigned int i = 0; i < dimx; i++)
+    {
+        for (unsigned int j = 0; j < dimy; j++)
+        {
+            SDL_SetRenderDrawColor(renderer, getPix(i, j).getRouge(), getPix(i, j).getVert(), getPix(i, j).getBleu(), 255);
+            SDL_RenderDrawPoint(renderer, i, j);
+        }
+    }
 }
