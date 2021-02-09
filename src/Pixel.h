@@ -23,7 +23,7 @@ public:
 
     /*! \brief Créer un pixel avec la quantité de rouge, vert et bleu désiré
     *
-    *
+    *  \param nr 
     *  nr, ng, nb => [0, 255] sinon conversion automatique.
     * La quantité de rouge du pixel devient : nr, de vert : ng et de bleu : nb.
     */
