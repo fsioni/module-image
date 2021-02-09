@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -g -Wall
-EXECS = bin/exemple.out bin/test.out bin/affichage.out
+EXECS = bin/exemple bin/test bin/affichage
 INCLUDE_DIR			= -Isrc -Isrc/core -Isrc/sdl2 -Itxt
 
 ifeq ($(OS),Windows_NT)
@@ -26,13 +26,13 @@ endif
 
 all: $(EXECS)
 
-bin/exemple.out : obj/mainExemple.o obj/Pixel.o obj/Image.o
+bin/exemple : obj/mainExemple.o obj/Pixel.o obj/Image.o
 	$(CC) $(CFLAGS) $^ -o $@ $(LIBS_SDL)
 
-bin/test.out : obj/mainTest.o obj/Pixel.o obj/Image.o
+bin/test : obj/mainTest.o obj/Pixel.o obj/Image.o
 	$(CC) $(CFLAGS) $^ -o $@ $(LIBS_SDL)
 
-bin/affichage.out : obj/mainAffichage.o obj/Pixel.o obj/Image.o
+bin/affichage : obj/mainAffichage.o obj/Pixel.o obj/Image.o
 	$(CC) $(CFLAGS) $^ -o $@ $(LIBS_SDL)
 
 obj/mainAffichage.o : src/mainAffichage.cpp src/Pixel.h src/Image.h
