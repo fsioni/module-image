@@ -1,5 +1,13 @@
 # Module Image
 
+## Contributeurs
+
+SIONI Farès p1907037
+BAGNOL Stanislas p1909886
+CHOUGAR Lyes p1925126
+
+## Principe
+
 Réalisation du module Image dans le cadre du TD Outils ayant pour but
 de prendre en main des outils indispensables à la programmation
 comme gdb pour débugger, valgrind pour gérer les fuites mémoires,
