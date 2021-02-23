@@ -38,17 +38,17 @@ unsigned int Xmax, unsigned int Ymax, const Pixel& couleur){
     
     assert(Xmin < Xmax && Ymin < Ymax);
     assert(Xmin < dimx && Ymin < dimy);
-    assert(Xmax <= dimx && Ymax <= dimx);
+    assert(Xmax < dimx && Ymax < dimx);
     assert(Xmin >= 0 && Ymin >= 0);
 
-    for(unsigned int i=Xmin; i<Xmax; i++)
-        for(unsigned int j=Ymin; j<Ymax; j++)
+    for(unsigned int i=Xmin; i<=Xmax; i++)
+        for(unsigned int j=Ymin; j<=Ymax; j++)
             setPix(i, j, couleur);
 }
 
 
 void Image::effacer(Pixel const & couleur){
-    dessinerRectangle(0, 0, dimx, dimy, couleur);
+    dessinerRectangle(0, 0, dimx-1, dimy-1, couleur);
 }
 
 void Image::testRegression(){
@@ -196,8 +196,9 @@ void Image::afficherInit(){
         exit(1);
     }
 
+    has_changed =true;
     renderer = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED);
-
+    zoom = 1.0;
 }
 
 void Image::afficherBoucle(){
@@ -212,10 +213,18 @@ void Image::afficherBoucle(){
 			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
 				switch (events.key.keysym.scancode) {
                     case SDL_SCANCODE_T:
-                        //zoom()
+                        if (zoom < 35)
+                        {
+                            zoom++;
+                        }                                            
+                        has_changed = true;
                         break;
                     case SDL_SCANCODE_G:
-                        //dezoom()
+                        if (zoom > 1)
+                        {
+                            zoom--;
+                        }
+                        has_changed =true;
                         break;
                     case SDL_SCANCODE_ESCAPE:
                     case SDL_SCANCODE_Q:
@@ -226,11 +235,17 @@ void Image::afficherBoucle(){
 			}
 		}
 
-		// on affiche le jeu sur le buffer cach�
-		sdlAff();
+        if (has_changed)
+        {
+            has_changed = false;
+            // on affiche le jeu sur le buffer cach�
+		    sdlAff();
 
-		// on permute les deux buffers (cette fonction ne doit se faire qu'une seule fois dans la boucle)
-        SDL_RenderPresent(renderer);
+		    // on permute les deux buffers (cette fonction ne doit se faire qu'une seule fois dans la boucle)
+             SDL_RenderPresent(renderer);
+        }
+        
+		
 	}
 }
 
@@ -247,17 +262,25 @@ void Image::sdlAff(){
 
 void Image::sdlClearWindow(){
             SDL_SetRenderDrawColor(renderer, 150, 150, 150, 255);
-            SDL_RenderFillRect(renderer, NULL);
+            SDL_RenderClear(renderer);
+
             SDL_RenderPresent(renderer);
 }
 
 void Image::sdlAffImage(){
+    SDL_Rect rect;
     for (unsigned int i = 0; i < dimx; i++)
     {
         for (unsigned int j = 0; j < dimy; j++)
         {
+
             SDL_SetRenderDrawColor(renderer, getPix(i, j).getRouge(), getPix(i, j).getVert(), getPix(i, j).getBleu(), 255);
-            SDL_RenderDrawPoint(renderer, i, j);
+            rect.x = i*zoom + dimFenetreX/2 - dimx*zoom/2;
+            rect.y = j*zoom + dimFenetreY/2 - dimy*zoom/2;
+            rect.w = zoom;
+            rect.h = zoom;
+            SDL_RenderFillRect(renderer, &rect);
         }
     }
+    SDL_RenderPresent(renderer);
 }
