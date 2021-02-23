@@ -60,10 +60,10 @@ void Image::testRegression(){
     Image im2(dimx_, dimy_);
 
     // test si l'image initialisé est bien toute noire
-    for(unsigned int i = 0; i < dimx_ ; i++)
-        for(unsigned int j = 0; j < dimy_ ; j++){
+    for(int i = 0; i < dimx_ ; i++)
+        for(int j = 0; j < dimy_ ; j++){
             Pixel p = im.getPix(i, j);
-            assert(p.getRouge() == p.getVert() == p.getBleu() == 0);
+            assert((p.getRouge() == p.getVert()) == (p.getBleu() == 0));
         }
 
     // test du mutateur de Pixel
@@ -75,8 +75,8 @@ void Image::testRegression(){
     
     // test si l'image à bien été effacer et remplacer avec la bonne couleur
     im.effacer(rouge);
-    for(unsigned int i = 0; i < dimx_ ; i++)
-        for(unsigned int j = 0; j < dimy_ ; j++){
+    for(int i = 0; i < dimx_ ; i++)
+        for(int j = 0; j < dimy_ ; j++){
             Pixel p = im.getPix(i, j);
             assert(p.getRouge() == rouge.getRouge() &&
                    p.getVert() == rouge.getVert() && 
@@ -87,8 +87,8 @@ void Image::testRegression(){
     int xmin = 0, ymin = 0, xmax = 4, ymax = 4;
     im.dessinerRectangle(xmin, ymin, xmax, ymax, bleu);
 
-    for(unsigned int i = 0; i < dimx_ ; i++)
-        for(unsigned int j = 0; j < dimy_ ; j++){
+    for(int i = 0; i < dimx_ ; i++)
+        for(int j = 0; j < dimy_ ; j++){
             Pixel p = im.getPix(i, j);
             if(i >= xmin && i <= xmax && j >= ymin && j <= ymax)
                 assert(p.getRouge() == bleu.getRouge() &&
@@ -105,8 +105,8 @@ void Image::testRegression(){
     im.sauver(filename);
     im2.ouvrir(filename);
 
-    for(unsigned int i = 0; i < dimx_ ; i++)
-        for(unsigned int j = 0; j < dimy_ ; j++){
+    for(int i = 0; i < dimx_ ; i++)
+        for(int j = 0; j < dimy_ ; j++){
             Pixel p = im.getPix(i, j);
             Pixel p2 = im2.getPix(i, j);
             assert(p.getRouge() == p2.getRouge() &&
