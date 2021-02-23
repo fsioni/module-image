@@ -51,10 +51,7 @@ obj/Pixel.o : src/Pixel.cpp src/Pixel.h
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE_DIR_SDL) $(INCLUDE_DIR)
 
 clean :
-	rm obj/*.o
-
-veryclean : 
-	rm $(EXECS)
+	rm obj/*.o $(EXECS)
 
 docs :
 	doxygen doc/image.doxy

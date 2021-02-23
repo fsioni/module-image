@@ -4,9 +4,6 @@
 #include <string>
 #include <fstream> 
 #include <SDL.h>
-#include <SDL_ttf.h>
-#include <SDL_image.h>
-#include <SDL_mixer.h>
 #include "Pixel.h"
 
 using namespace std;
@@ -27,9 +24,12 @@ private:
     unsigned int dimx; /*! \brief Dimension de l'image sur l'axe x (horizontal). */
     unsigned int dimy; /*! \brief Dimension de l'image sur l'axe y (vertical). */
 
+    bool has_changed;
     unsigned int dimFenetreX = 200, dimFenetreY = 200;
     SDL_Window * window;
     SDL_Renderer * renderer;
+
+    float zoom;
 
     /*// === Fonctions membres privées === //*/
     void afficherInit();
