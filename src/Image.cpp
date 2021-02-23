@@ -38,7 +38,7 @@ unsigned int Xmax, unsigned int Ymax, const Pixel& couleur){
     
     assert(Xmin < Xmax && Ymin < Ymax);
     assert(Xmin < dimx && Ymin < dimy);
-    assert(Xmax <= dimx && Ymax <= dimx);
+    assert(Xmax < dimx && Ymax < dimx);
     assert(Xmin >= 0 && Ymin >= 0);
 
     for(unsigned int i=Xmin; i<=Xmax; i++)
