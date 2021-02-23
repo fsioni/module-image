@@ -1,78 +1,97 @@
 #ifndef PIXEL_H
 #define PIXEL_H
 
+
+/*! \class Pixel
+*   \brief Classe représentant un Pixel.
+*   
+*  La classe représente un pixel, un composant prennant des composants 
+*  r, g et b prennant valeur entre 0 et 255.
+*/
 class Pixel
 {
 private:
     /*// ==== Données membres privées === //*/
 
-    unsigned char r;//!< Quantité de couleur rouge du pixel => [0...255]
-    unsigned char g;//!< Quantité de couleur verte du pixel => [0...255]
-    unsigned char b;//!< Quantité de couleur bleue du pixel => [0...255]
+    unsigned char r; /*! \brief Quantité de rouge comprise entre 0 et 255. */
+    unsigned char g; /*! \brief Quantité de vert comprise entre 0 et 255. */
+    unsigned char b; /*! \brief Quantité de bleu comprise entre 0 et 255. */
 
 
 public:
     /*// ==== Fonctions membres publiques === //*/
 
-    /*! \brief Créer un pixel de couleur noir
+    /*! \brief Constructeur par défaut.
     *
     *
-    *  Un pixel est intialisé avec une quantité de rouge, vert et bleu à 0
+    *  Initialise un pixel avec une couleur noir, r, g et b valent 0.
     */
     Pixel();
 
-    /*! \brief Créer un pixel avec la quantité de rouge, vert et bleu désiré
+    /*! \brief Constructeur avec choix de la couleur.
     *
-    *
-    *  nr, ng, nb => [0, 255] sinon conversion automatique.
-    * La quantité de rouge du pixel devient : nr, de vert : ng et de bleu : nb.
+    *   Initialise un pixel avec comme valeur r = nr, g = ng et b = nb.
+    *   
+    *   \param [in] nr : valeur comprise entre 0 et 255 assigné à r.
+    *   \param [in] ng : valeur comprise entre 0 et 255 assigné à g.
+    *   \param [in] nb : valeur comprise entre 0 et 255 assigné à b.
     */
     Pixel(unsigned char const nr, unsigned char const ng, unsigned char const nb);
 
-    /*! \brief Le pixel est détruit
-    *
+    /*! \brief Destructeur
+    *   
+    *   Le pixel est détruit.
     */
     ~Pixel();
 
 
     /*// ==== Accesseurs === //*/
 
-    /*! \brief Retourne une valeur entre 0 et 255, correspondant à la quantité de rouge du pixel
-    *
-    * 
+    /*! \brief Retourne r.
+    *   
+    *   Retourne la quantité r comprise entre 0 et 255 de rouge du pixel.
     */
     unsigned char getRouge() const;
 
-    /*! \brief Retourne une valeur entre 0 et 255, correspondant à la quantité de vert du pixel
-    *
-    * 
+    /*! \brief Retourne g.
+    *   
+    *   Retourne la quantité g comprise entre 0 et 255 de vert du pixel.
     */
     unsigned char getVert() const;
 
-    /*! \brief Retourne une valeur entre 0 et 255, correspondant à la quantité de bleu du pixel
-    *
-    * 
+    /*! \brief Retourne b.
+    *   
+    *   Retourne la quantité b comprise entre 0 et 255 de bleu du pixel.
     */
     unsigned char getBleu() const;
 
 
     /*// ==== Mutateurs === //*/
 
-    /*! \brief Modifie la quantité de rouge du pixel. nr doit être entre 0 et 255.
-    *
+    /*! \brief Mutateur de r.
+    *   
+    *   Modifie la valeur de r, quantité de rouge du Pixel,
+    *   en faisant les vérifications nécessaires.
     * 
+    *   \param [in] nr : Nouvelle valeur assigné à r.
     */
     void setRouge(unsigned char const nr);
 
-    /*! \brief Modifie la quantité de vert du pixel. ng doit être entre 0 et 255.
-    *
+    /*! \brief Mutateur de g.
+    *   
+    *   Modifie la valeur de g, quantité de vert du Pixel,
+    *   en faisant les vérifications nécessaires.
     * 
+    *   \param [in] ng : Nouvelle valeur assigné à r.
     */
     void setVert(unsigned char const ng);
 
-     /*! \brief Modifie la quantité de bleu du pixel. nb doit être entre 0 et 255.
-    *
+    /*! \brief Mutateur de b.
+    *   
+    *   Modifie la valeur de b, quantité de bleu du Pixel,
+    *   en faisant les vérifications nécessaires.
     * 
+    *   \param [in] nb : Nouvelle valeur assigné à b.
     */
     void setBleu(unsigned char const nb);
 };
