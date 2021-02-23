@@ -19,10 +19,14 @@ class Image
 private:
     /*// ==== Données membres privées === //*/
 
-    Pixel *tab; /*! \brief Tableau 1D de Pixel. */
+    /*! \brief Tableau 1D de Pixel. */
+    Pixel * tab; 
 
-    unsigned int dimx; /*! \brief Dimension de l'image sur l'axe x (horizontal). */
-    unsigned int dimy; /*! \brief Dimension de l'image sur l'axe y (vertical). */
+    /*! \brief Dimension de l'image sur l'axe x (horizontal). */
+    unsigned int dimx; 
+
+    /*! \brief Dimension de l'image sur l'axe y (vertical). */
+    unsigned int dimy; 
 
     bool has_changed;
     unsigned int dimFenetreX = 200, dimFenetreY = 200;

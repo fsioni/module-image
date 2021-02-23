@@ -17,7 +17,10 @@ Image::Image(unsigned int dimensionX, unsigned int dimensionY){
 }
 
 Image::~Image(){
-    delete[] tab;
+    if(tab!=nullptr){
+        delete[] tab;
+        tab = nullptr;
+    }
     dimx = 0;
     dimy = 0;
 }
