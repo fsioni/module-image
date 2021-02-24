@@ -40,6 +40,8 @@ private:
     void afficherBoucle();
     void afficherDetruit();
     void sdlAff();
+    void sdlClearWindow();
+    void sdlAffImage();
 
 public:
     /*// ==== Fonctions membres publiques === //*/
@@ -148,13 +150,11 @@ public:
 
     /*! \brief Affichage dans une fenêtre graphique.
     *
-    *   Affichage de l'image dans une fenêtre graphique avec SDL2.
+    *   Affichage de l'image dans une fenêtre graphique avec SDL2. Utiliser la touche T pour zoomer, G pour dézoomer et Q pour quitter.
     */
     void afficher();
 
-    void sdlClearWindow();
-
-    void sdlAffImage();
+    
 };
 
 
